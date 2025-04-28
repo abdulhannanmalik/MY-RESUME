@@ -1,0 +1,473 @@
+/* CSS Styling for Malik Ab Hannan's Online Dukaan */
+/* Use Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Define CSS Variables for colors */
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #28a745; /* Green */
+    --text-color: #333;
+    --light-bg: #eef2f7; /* Light blue background */
+    --dark-bg: #343a40; /* Dark grey */
+    --white-color: #fff;
+    --gray-border: #e0e0e0;
+    --red-price: #dc3545; /* Red */
+    --card-shadow: rgba(0, 0, 0, 0.08); /* Card shadow color */
+    --hover-shadow: rgba(0, 0, 0, 0.15); /* Hover shadow color */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Set font family */
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg); /* Use light background variable */
+    color: var(--text-color); /* Use text color variable */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+/* Header Styling */
+.site-header {
+    background-color: var(--primary-color); /* Use primary color variable */
+    color: var(--white-color); /* Use white color variable */
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure header is on top */
+}
+
+.site-header .container {
+    display: flex; /* Use flexbox for header layout */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.site-title a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.site-title a:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.site-nav ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    display: flex; /* Use flexbox for nav items */
+}
+
+.site-nav ul li {
+    margin-left: 25px; /* Space between nav items */
+}
+
+.site-nav ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.site-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--white-color);
+    transition: width 0.3s ease;
+}
+
+.site-nav ul li a:hover::after {
+    width: 100%;
+}
+
+.site-nav ul li a:hover {
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white on hover */
+}
+
+.cart-icon a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.5em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.cart-icon a:hover {
+     color: rgba(255, 255, 255, 0.9);
+}
+
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--red-price); /* Use red price color for count */
+    color: var(--white-color);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    font-weight: 600;
+    min-width: 20px; /* Ensure circle is visible even with 0 */
+    text-align: center;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background: linear-gradient(rgba(0, 123, 255, 0.8), rgba(40, 167, 69, 0.8)), url('https://placehold.co/1200x400/007bff/ffffff?text=Great+Deals+Here') no-repeat center center/cover; /* Background image with overlay */
+    color: var(--white-color);
+    text-align: center;
+    padding: 80px 20px; /* More padding */
+    margin-bottom: 40px;
+    border-radius: 12px; /* Rounded corners */
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color); /* Use secondary color variable */
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Products Section Styling */
+.products-section {
+    margin-bottom: 40px;
+}
+
+.products-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Increased gap */
+}
+
+.product-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--gray-border); /* Use gray border variable */
+    border-radius: 10px;
+    overflow: hidden; /* Hide anything outside the border-radius */
+    box-shadow: 0 4px 8px var(--card-shadow); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* More pronounced lift */
+    box-shadow: 0 8px 16px var(--hover-shadow); /* Larger shadow */
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Cover the area */
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow info section to grow */
+    justify-content: space-between;
+}
+
+.product-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: var(--primary-color); /* Use primary color for product title */
+    font-weight: 600;
+}
+
+.product-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow description to grow */
+}
+
+.product-info .price {
+    font-size: 1.4em;
+    color: var(--red-price); /* Use red price color variable */
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.product-card .add-to-cart {
+    background-color: var(--secondary-color); /* Use secondary color variable */
+    color: var(--white-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    width: 100%; /* Full width button */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .add-to-cart:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.product-card .add-to-cart:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+
+.loading-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+    grid-column: 1 / -1; /* Center message in the grid */
+}
+
+
+/* Footer Styling */
+.site-footer {
+    background-color: var(--dark-bg); /* Use dark background variable */
+    color: var(--white-color);
+    padding: 40px 0 20px; /* Increased padding */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: var(--white-color);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--white-color);
+}
+
+.footer-section.contact p {
+    margin-bottom: 10px;
+}
+
+.footer-section.contact i {
+    margin-right: 10px;
+    color: var(--secondary-color); /* Use secondary color for icons */
+}
+
+.social-links a {
+    color: var(--white-color);
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color); /* Change color on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.5); /* More transparent white */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column; /* Stack header items */
+        text-align: center;
+    }
+
+    .site-nav ul {
+        margin-top: 15px;
+        justify-content: center; /* Center nav items */
+    }
+
+    .site-nav ul li {
+        margin: 0 10px;
+    }
+
+    .cart-icon {
+        margin-top: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .products-section h2 {
+        font-size: 2em;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr; /* Stack footer sections */
+        text-align: center;
+    }
+
+    .footer-section ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        display: inline-block; /* Display list items inline */
+        margin: 0 10px;
+    }
+
+    .social-links {
+        margin-top: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title a {
+        font-size: 1.5em;
+    }
+
+    .site-nav ul li {
+        display: block; /* Stack nav items on very small screens */
+        margin: 10px 0;
+    }
+
+    .hero-section {
+        padding: 50px 10px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .products-section h2 {
+        font-size: 1.8em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 15px;
+    }
+
+    .product-card img {
+        height: 180px; /* Adjust image height */
+    }
+
+    .product-info h3 {
+        font-size: 1.2em;
+    }
+
+     .product-info .price {
+        font-size: 1.3em;
+    }
+
+    .site-footer {
+        padding: 30px 0 15px;
+    }
+
+    .footer-section ul li {
+        display: block; /* Stack footer links */
+        margin: 5px 0;
+    }
+
+    .social-links a {
+        margin: 0 8px; /* Adjust social link spacing */
+    }
+}
